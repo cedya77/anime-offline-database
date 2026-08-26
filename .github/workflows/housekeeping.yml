@@ -27,6 +27,8 @@ jobs:
           echo "PREVIOUS_VERSION=$version" >> $GITHUB_OUTPUT
 
       - name: Delete outdated release assets
+        # Nothing to prune until the sixth weekly release exists.
+        if: steps.fetch-latest-release.outputs.PREVIOUS_VERSION != ''
         uses: mknejp/delete-release-assets@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
