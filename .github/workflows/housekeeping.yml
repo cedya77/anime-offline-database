@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write
+  actions: write
+
 jobs:
   housekeeping:
     runs-on: ubuntu-latest
@@ -21,13 +25,14 @@ jobs:
           keep_minimum_runs: 1
 
       - id: fetch-latest-release
-        name: Fetch latest release tag
+        name: Fetch the release which has aged out
         run: |
-          version=$(git tag --sort=creatordate | tail -6 | head -1)
+          # `latest` is a moving pointer at the newest build, so it is never a pruning candidate,
+          # and the five most recent weeks stay served. Empty output skips the deletion entirely.
+          version=$(git tag --sort=creatordate | grep -v '^latest$' | head -n -5 | tail -1)
           echo "PREVIOUS_VERSION=$version" >> $GITHUB_OUTPUT
 
       - name: Delete outdated release assets
-        # Nothing to prune until the sixth weekly release exists.
         if: steps.fetch-latest-release.outputs.PREVIOUS_VERSION != ''
         uses: mknejp/delete-release-assets@v1
         with:
