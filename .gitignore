@@ -33,3 +33,9 @@ schemas/*
 pics/*
 !pics/no_pic.png
 !pics/no_pic_thumbnail.png
+
+!merge-decisions/
+merge-decisions/*
+!merge-decisions/README.md
+!merge-decisions/merge.lock
+!merge-decisions/checked-isolated-entries.txt
