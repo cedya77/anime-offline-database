@@ -1,0 +1,51 @@
+name: Merge request
+description: Entries which are separate in the dataset should be merged together?
+title: "Merge entries for <title>"
+labels: [merge-request]
+assignees: cedya77
+body:
+- type: checkboxes
+  id: background
+  attributes:
+    label: Have you read how merging works?
+    description: Please read [merge-decisions/README.md](https://github.com/cedya77/anime-offline-database/blob/main/merge-decisions/README.md) first. It explains why entries end up separate and what a merge lock does.
+    options:
+      - label: Yes, I have read it
+        required: true
+  validations:
+    required: true
+- type: textarea
+  id: entries
+  attributes:
+    label: Sources
+    description: List the URLs from the `sources` property of each entry which should be merged into a single entry. Put each entry in its own block, enclosed in backticks (```).
+  validations:
+    required: true
+- type: markdown
+  attributes:
+    value: |
+      **Example:**
+      ````
+      ```
+      "https://anidb.net/anime/4563",
+      "https://animecountdown.com/40190",
+      "https://simkl.com/anime/40190"
+      ```
+
+      ```
+      "https://anilist.co/anime/1535",
+      "https://anime-planet.com/anime/death-note",
+      "https://animenewsnetwork.com/encyclopedia/anime.php?id=6592",
+      "https://anisearch.com/anime/3633",
+      "https://kitsu.app/anime/1376",
+      "https://livechart.me/anime/3437",
+      "https://myanimelist.net/anime/1535"
+      ```
+      ````
+- type: textarea
+  id: reason
+  attributes:
+    label: Additional reasoning
+    description: Why should these be one entry? References to titles, episode counts or air dates make it much faster to confirm.
+  validations:
+    required: false
