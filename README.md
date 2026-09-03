@@ -10,10 +10,25 @@ which was archived on 2026-07-04 with the final release `2026-27`. The dataset h
 pipeline, and is seeded from that final release so the merge decisions accumulated upstream are
 carried forward rather than rediscovered.
 
-## Metadata providers
+<!-- statistics -->
+## Statistics
+Update **week 36 [2026]**
 
-anidb.net, anilist.co, anime-planet.com, animenewsnetwork.com, anisearch.com, kitsu.app,
-livechart.me, myanimelist.net, simkl.com
+The dataset consists of **38137** entries _(76% reviewed)_ composed of:
+
+| Number of entries | Metadata provider |
+|-------------------|-------------------|
+| 30786 | [myanimelist.net](https://myanimelist.net) |
+| 26887 | [anime-planet.com](https://anime-planet.com) |
+| 22247 | [kitsu.app](https://kitsu.app) |
+| 21105 | [anisearch.com](https://anisearch.com) |
+| 20803 | [anilist.co](https://anilist.co) |
+| 14621 | [anidb.net](https://anidb.net) |
+| 14612 | [simkl.com](https://simkl.com) |
+| 14612 | [animecountdown.com](https://animecountdown.com) |
+| 12703 | [animenewsnetwork.com](https://animenewsnetwork.com) |
+| 12353 | [livechart.me](https://livechart.me) |
+<!-- /statistics -->
 
 ## Getting the data
 
